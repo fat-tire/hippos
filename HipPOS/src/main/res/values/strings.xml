@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">HipPOS</string>
+
+    <string name="navigation_drawer_open">Open drawer</string>
+    <string name="navigation_drawer_close">Close drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="default_url">https://fat-tire.github.io/floreantpos.html</string>
+    <string name="uri_hint">https://192.168.1.100:8080</string>
+    <string name="note_use_https">Note: Starts with http:// or https://\nIf no port number is specified, 80 is assumed.  SSL errors are ignored!</string>
+    <string name="about_hippos">About HipPOS</string>
+    <string name="change_url">Settings</string>
+    <string name="set_the_URL">Quick Settings</string>
+    <string name="note_dimensions">Note: You may have to set Xvfb like this:\n/usr/X11R6/bin/Xvfb :1 -screen 0 1024x768x16</string>
+    <string name="default_width">1024</string>
+    <string name="default_height">768</string>
+    <string name="about_hippos_long"><![CDATA[<p/>Copyright &#169; 2018 by <a href="https://twitter.com/fat__tire\">fattire</a>
+    (and anyone else who contributes)\n
+    <p/>Thanks to:<p/>
+    <p>&#8226; Roman Nurik\'s <a href="https://romannurik.github.io/AndroidAssetStudio/">Android Asset Studio</a>
+        (<a href="http://creativecommons.org/licenses/by/3.0/">CC 3.0 unported</a>) for helping with the icon!</p>\n
+    <p>&#8226; <a href="https://publicdomainpictures.net">publicdomainpictures.net</a> for the hippo image</p>\n
+    <p>&#8226; Google for Android!</p>\n
+    <p>This app is released under the terms of the GNU Public License, version 3, which can be\n
+     found at <a href="https://www.gnu.org/licenses/gpl-3.0.txt\">https://www.gnu.org/licenses/gpl-3.0.txt</a>.</p>  Source should be available
+     from wherever you got this app, or at <a href="https://www.github.com/fat-tire/hippos">github.com</a>.
+    <p>Note:  This app is not officially affiliated with floreantpos or any other software.</p>\n
+    ]]></string>
+    <string name="url">URL</string>
+    <string name="viewport_width">Viewport width</string>
+    <string name="use_device_width">Use device-width</string>
+    <string name="load_with_overview_mode">Load with overview mode</string>
+    <string name="use_wide_viewport">Use wide viewport</string>
+    <string name="force_landscape">Force landscape</string>
+    <string name="cool">Cool</string>
+    <string name="built">Built:</string>
+    <string name="app_desc">An open-source web app viewer</string>
+</resources>
