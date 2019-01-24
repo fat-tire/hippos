@@ -1,22 +1,33 @@
 apply plugin: 'com.android.application'
 
-android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
 
-    defaultConfig {
-        applicationId "com.example.hippos"
-        minSdkVersion 14
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0 (beta 1)"
-        vectorDrawables.useSupportLibrary = true
-    }
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.annotation:annotation:1.0.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
+    implementation 'androidx.preference:preference:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha02'
+}
+
+
+android {
+    buildToolsVersion "28.0.3"
+    compileSdkVersion 28
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    lintOptions {
+        abortOnError false
+    }
+    defaultConfig {
+        applicationId "com.example.hippos"
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0 (beta 1)"
+        vectorDrawables.useSupportLibrary = true
+    }
     buildTypes {
         release {
             buildConfigField "java.util.Date", "buildTime", "new java.util.Date(" + System.currentTimeMillis() + "L)"
@@ -28,10 +39,7 @@ android {
             buildConfigField "java.util.Date", "buildTime", "new java.util.Date(" + System.currentTimeMillis() + "L)"
         }
     }
-}
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:design:27.1.1'
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
 }
