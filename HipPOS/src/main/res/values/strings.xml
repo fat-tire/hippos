@@ -14,7 +14,7 @@
     <string name="note_dimensions">Note: You may have to set Xvfb like this:\n/usr/X11R6/bin/Xvfb :1 -screen 0 1024x768x16</string>
     <string name="default_width">1024</string>
     <string name="default_height">768</string>
-    <string name="about_hippos_long"><![CDATA[<p/>Copyright &#169; 2019 by <a href="https://twitter.com/fat__tire\">fattire</a>
+    <string name="about_hippos_long"><![CDATA[<p/>Copyright &#169; 2019 by <a href="https://twitter.com/fat__tire">fattire</a>
     (and anyone else who contributes)\n
     <p/>Thanks to:<p/>
     <p>&#8226; Roman Nurik\'s <a href="https://romannurik.github.io/AndroidAssetStudio/">Android Asset Studio</a>
