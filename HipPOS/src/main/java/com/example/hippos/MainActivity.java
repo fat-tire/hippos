@@ -15,7 +15,6 @@
 package com.example.hippos;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.net.http.SslError;
@@ -30,7 +29,6 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.CheckBox;
 import android.widget.Checkable;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -149,7 +147,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
@@ -161,9 +158,7 @@ public class MainActivity extends AppCompatActivity
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.app_name))
                     .setMessage(Html.fromHtml(about))
-                    .setPositiveButton(R.string.cool, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                        }
+                    .setPositiveButton(R.string.cool, (dialog, id1) -> {
                     });
             AlertDialog d = builder.create();
             d.show();
@@ -178,10 +173,10 @@ public class MainActivity extends AppCompatActivity
             final EditText urlText = v.findViewById(R.id.urlText);
             final EditText widthText = v.findViewById(R.id.screenWidth);
             final EditText heightText = v.findViewById(R.id.screenHeight);
-            final Checkable wideViewPortCheckBox = (CheckBox) v.findViewById(R.id.wideviewport);
-            final Checkable overviewModeCheckBox = (CheckBox) v.findViewById(R.id.overviewmode);
-            final Checkable usedevicewidth = (CheckBox) v.findViewById(R.id.usedevicewidth);
-            final Checkable forceLandscape = (CheckBox) v.findViewById(R.id.landscape);
+            final Checkable wideViewPortCheckBox = v.findViewById(R.id.wideviewport);
+            final Checkable overviewModeCheckBox = v.findViewById(R.id.overviewmode);
+            final Checkable usedevicewidth = v.findViewById(R.id.usedevicewidth);
+            final Checkable forceLandscape = v.findViewById(R.id.landscape);
 
 
             overviewModeCheckBox.setChecked(prefs.getBoolean("overviewmode", false));
@@ -195,27 +190,25 @@ public class MainActivity extends AppCompatActivity
 
             builder.setTitle(getString(R.string.set_the_URL))
                     .setView(v)
-                    .setPositiveButton("Done", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            wv.loadUrl(urlText.getText().toString());
-                            try {
-                                screenWidth = Integer.parseInt(widthText.getText().toString());
-                                screenHeight = Integer.parseInt(heightText.getText().toString());
-                            } catch (java.lang.NumberFormatException nfe) {
-                                Log.e(getString(R.string.app_name), "Error!", nfe);
-                            }
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putString("url", urlText.getText().toString());
-                            editor.putString("height", heightText.getText().toString());
-                            editor.putString("width", widthText.getText().toString());
-                            editor.putBoolean("wideviewport", wideViewPortCheckBox.isChecked());
-                            editor.putBoolean("overviewmode", overviewModeCheckBox.isChecked());
-                            editor.putBoolean("usedevicewidth", usedevicewidth.isChecked());
-                            editor.putBoolean("landscape", forceLandscape.isChecked());
-
-                            editor.apply();
-                            updateWebView();
+                    .setPositiveButton("Done", (dialog, id12) -> {
+                        wv.loadUrl(urlText.getText().toString());
+                        try {
+                            screenWidth = Integer.parseInt(widthText.getText().toString());
+                            screenHeight = Integer.parseInt(heightText.getText().toString());
+                        } catch (NumberFormatException nfe) {
+                            Log.e(getString(R.string.app_name), "Error!", nfe);
                         }
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putString("url", urlText.getText().toString());
+                        editor.putString("height", heightText.getText().toString());
+                        editor.putString("width", widthText.getText().toString());
+                        editor.putBoolean("wideviewport", wideViewPortCheckBox.isChecked());
+                        editor.putBoolean("overviewmode", overviewModeCheckBox.isChecked());
+                        editor.putBoolean("usedevicewidth", usedevicewidth.isChecked());
+                        editor.putBoolean("landscape", forceLandscape.isChecked());
+
+                        editor.apply();
+                        updateWebView();
                     });
             AlertDialog d = builder.create();
             d.show();
