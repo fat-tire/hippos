@@ -31,7 +31,6 @@ proguard/
 .idea/
 google-services.json
 .gradle/
-local.properties
 /*/local.properties
 /*/out
 /*/*/build
@@ -39,8 +38,6 @@ local.properties
 *.iml
 *.iws
 *.ipr
-*.swp
-*.jks
 *.log
 .navigation/
 gradlew
