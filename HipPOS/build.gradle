@@ -42,9 +42,6 @@ android {
             buildConfigField "java.util.Date", "buildTime", "new java.util.Date(" + System.currentTimeMillis() + "L)"
         }
     }
-    dexOptions {
-        javaMaxHeapSize "4g"
-    }
 }
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
